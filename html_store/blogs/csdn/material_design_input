@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <h1>Google Material Design 文本输入框 效果演示</h1>
+        <h3>2021 By 人工智障</h3>
+    </head>
+    <body>
+        <style>
+            .button { color:rgb(255, 255, 255);font-size:15px;padding-top:4px;padding-bottom:4px;padding-left:10px;padding-right:10px;border-width:3px;border-color:rgb(158, 194, 255);border-style:solid;border-radius:5px;background-color:rgb(0, 149, 194);}
+            .button:hover{color:#ffffff;background-color:#1c72b9;border-color:#91a6e3;}
+        </style>
+        <style>
+            form {
+  width: 80%;
+  height: 50vh;
+  margin: auto;
+  position: relative;
+  font-family: Sans-serif;
+}
+form input {
+  height: 3rem;
+  width: 20rem;
+  border: none;
+  border-bottom: 0.1rem solid black;
+}
+form label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+form input {
+  height: 3rem;
+  width: 20rem;
+  padding-top: 0rem; /* 新增 */
+  border: none;
+  border-bottom: 0.1rem solid black;
+  outline: none; /* 新增 */
+}
+form label::after {
+  content: ""; /* 这个很关键，我们需要这个属性底部边框才会显示出来 */
+  height: 2.9rem;
+  width: 20rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 0.2rem solid #1c72b9; /* 底部边框需要较为突出，这里我们加粗跟上颜色 */
+  transform: translateX(-100%); /* 向左平移 100% 确保移出 form 元素之外 */
+  transition: all 0.3s ease; /* 添加动画来达到平滑移动的效果 */
+}
+form label span {
+  position: absolute;
+  bottom: -3rem;
+  left: 0;
+  transition: all 0.3s ease; /* 动画，达到平滑移动的效果 */
+}
+form input:focus + label span,
+form input:valid + label span {
+  transform: translateY(-170%); /* 将 Username向上平移 */
+  font-size: 0.7rem; /* 变大字体，突显高亮效果 */
+  color: #1c72b9; /* 高亮颜色 */
+}
+
+form input:focus + label::after,
+form input:valid + label::after {
+  transform: translateX(0); /* 将左边的高亮底部边框平移回来 */
+}
+form {
+  width: 50%;
+  height: 50vh;
+  margin: auto;
+  position: relative;
+  font-family: Sans-serif;
+  overflow: hidden; /* 新增 */
+}
+        </style>
+    <form>
+        <input type="text" required />
+        <label>
+          <span>输入框演示</span>
+        </label>
+    </form>
+    </body>
+</html>
