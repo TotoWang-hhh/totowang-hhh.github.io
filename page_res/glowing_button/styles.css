@@ -55,7 +55,7 @@
   background-color: var(--button-glow, transparent);
   opacity: var(--button-glow-opacity, 0);
   transition: opacity 0.5s;
-  filter: blur(20px);
+  filter: blur(30px);
 }
 
 .glow-button:hover { --button-glow-opacity: 1; }
