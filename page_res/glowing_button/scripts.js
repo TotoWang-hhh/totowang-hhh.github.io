@@ -23,7 +23,7 @@ class GlowButton extends HTMLElement {
       });
 
       gsap.to(button, {
-        "--button-glow": "#ffcc88",
+        "--button-glow": "#333333",
         duration: 0.2,
       });
     });
