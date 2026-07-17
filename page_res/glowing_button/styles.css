@@ -1,0 +1,65 @@
+.glow-button {
+  --button-background: #cccccc;
+  --button-color: #000;
+  appearance: none;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  color: var(--button-color);
+  background: none;
+  padding: 0;
+  box-shadow: 0 8px 20px rgba(104, 33, 4, 0.2);
+}
+
+.glow-button .gradient {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  transform: scale(1) scaleX(1.005) rotate(-.35deg);
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.glow-button .gradient:before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  transform: scale(1.05) translateY(-44px) rotate(0deg);
+  padding-bottom: 100%;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(104, 55, 4, 0.8), rgba(255, 255, 255, 0.8));
+  animation: rotate linear 2s infinite;
+}
+
+.glow-button span {
+  display: block;
+  padding: 10px 28px;
+  background-color: var(--button-background);
+  border-radius: inherit;
+  position: relative;
+
+  overflow: hidden; /* 强制剪裁溢出内容 */
+  z-index: 1;       /* 确保内容层级在遮罩之上 */
+}
+
+.glow-button span:before {
+  content: '';
+  position: absolute;
+  left: -16px; top: -16px;
+  transform: translate(var(--pointer-x, 0px), var(--pointer-y, 0px));
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background-color: var(--button-glow, transparent);
+  opacity: var(--button-glow-opacity, 0);
+  transition: opacity 0.5s;
+  filter: blur(20px);
+}
+
+.glow-button:hover { --button-glow-opacity: 1; }
+
+@keyframes rotate {
+  to { transform: scale(1.05) translateY(-44px) rotate(360deg); }
+}
