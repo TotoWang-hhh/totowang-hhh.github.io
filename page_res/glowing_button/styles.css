@@ -19,7 +19,7 @@
   border-radius: inherit;
   overflow: hidden;
   transform: scale(1) scaleX(1.005) rotate(-.35deg);
-  filter: blur(5px);
+  filter: blur(15px);
   pointer-events: none;
 }
 
